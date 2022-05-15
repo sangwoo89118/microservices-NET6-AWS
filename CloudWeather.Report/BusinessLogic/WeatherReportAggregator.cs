@@ -113,16 +113,20 @@ namespace CloudWeather.Report.BusinessLogic {
         }
 
         private string BuildTemperatureServiceEndpoint(string zip, int days) {
-            var tempServiceProtocol = _weatherDataConfig.TempDataProtocal;
+            var tempServiceProtocol = _weatherDataConfig.TempDataProtocol;
             var tempServiceHost = _weatherDataConfig.TempDataHost;
             var tempServicePort = _weatherDataConfig.TempDataPort;
             return $"{tempServiceProtocol}://{tempServiceHost}:{tempServicePort}/observation/{zip}?days={days}";
         }
 
         private string BuildPrecipitationEndpoint(string zip, int days) {
-            var precipServiceProtocol = _weatherDataConfig.PrecipDataProtocal;
+            var precipServiceProtocol = _weatherDataConfig.PrecipDataProtocol;
             var preciperviceHost = _weatherDataConfig.PrecipDataHost;
             var preciServicePort = _weatherDataConfig.PrecipDataPort;
+            Console.WriteLine($"precipServiceProtocol: {precipServiceProtocol}");
+            Console.WriteLine($"preciperviceHost: {preciperviceHost}");
+            Console.WriteLine($"preciServicePort: {preciServicePort}");
+            Console.WriteLine($"{precipServiceProtocol}://{preciperviceHost}:{preciServicePort}/observation/{zip}?days={days}");
             return $"{precipServiceProtocol}://{preciperviceHost}:{preciServicePort}/observation/{zip}?days={days}";
         }
 

@@ -94,8 +94,8 @@ void PostPrecip(int lowTemp, string zip, DateTime day, HttpClient precipitationH
 
 List<int> PostTemp(string zip, DateTime day, HttpClient temperatureHttpClient) {
     var rand = new Random();
-    var t1 = rand.Next(0, 1000);
-    var t2 = rand.Next(0, 1000);
+    var t1 = rand.Next(0, 100);
+    var t2 = rand.Next(0, 100);
     var hiLoTemps = new List<int> {t1, t2};
     hiLoTemps.Sort();
 
