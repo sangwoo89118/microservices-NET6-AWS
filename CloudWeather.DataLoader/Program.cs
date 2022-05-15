@@ -92,7 +92,7 @@ void PostPrecip(int lowTemp, string zip, DateTime day, HttpClient precipitationH
 }
 
 
-List<int> PostTemp(string zip, DateTime day, HttpClient precipitationHttpClient) {
+List<int> PostTemp(string zip, DateTime day, HttpClient temperatureHttpClient) {
     var rand = new Random();
     var t1 = rand.Next(0, 1000);
     var t2 = rand.Next(0, 1000);
@@ -106,8 +106,8 @@ List<int> PostTemp(string zip, DateTime day, HttpClient precipitationHttpClient)
         CreatedOn = day
     };
 
-    var tempResponse = precipitationHttpClient
-        .PostAsJsonAsync("observartion", temperatureObservation)
+    var tempResponse = temperatureHttpClient
+        .PostAsJsonAsync("observation", temperatureObservation)
         .Result;
 
     if (tempResponse.IsSuccessStatusCode) {
